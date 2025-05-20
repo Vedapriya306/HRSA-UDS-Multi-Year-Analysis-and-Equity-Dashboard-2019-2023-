@@ -58,6 +58,7 @@ This data is essential for public health evaluation, funding decisions, and impr
 ---
 
 ## 📈 Live Tableau Dashboard
+The live Tableau dashboard allows users to explore multi-year trends in patient age groups, race/ethnicity distribution, insurance coverage, and poverty levels across Minnesota FQHCs.
 
 View the interactive dashboard here:  
 🔗 [HRSA UDS Tableau Dashboard](https://public.tableau.com/views/FederallyQualifiedHealthClinicsPerformance/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
