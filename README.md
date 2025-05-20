@@ -1,62 +1,63 @@
- HRSA UDS Data Processing & Tableau Dashboard
-🏥 What is HRSA UDS?
-The Health Resources and Services Administration (HRSA) collects Uniform Data System (UDS) data annually from health centers funded under the Health Center Program. UDS data includes:
+# 📊 HRSA UDS Multi-Year Analysis (2019–2023)
 
-Patient demographics
+This project processes and visualizes data from the **Health Resources and Services Administration (HRSA) Uniform Data System (UDS)** across five years (2019–2023). It includes R scripts to transform and combine data into a Tableau-friendly format, with an interactive dashboard available on Tableau Public.
 
-Clinical quality measures
+---
 
-Service utilization
+## 🏥 What is HRSA UDS?
 
-Costs and financial performance
+The **Uniform Data System (UDS)** is a core reporting requirement for HRSA-funded health centers, containing detailed information on:
 
-This data is critical for evaluating the performance of Federally Qualified Health Centers (FQHCs) and informing public health decisions at the local and national levels.
+- Patient demographics (age, race, ethnicity)
+- Clinical quality measures
+- Service utilization
+- Financial performance
 
-📌 Project Goal
-This project focuses on extracting and transforming HRSA UDS Excel files from 2019 to 2023 for streamlined, multi-year analysis. The primary goals were:
+This data is essential for public health evaluation, funding decisions, and improving healthcare access across the U.S.
 
-Combine data from 5 separate Excel files (each representing a year) into one long-format Excel/CSV.
+---
 
-Add contextual columns like year and category to make data Tableau-ready.
+## 📁 Project Outputs
 
-Create an interactive Tableau dashboard to explore trends across time, health centers, and clinical categories.
+### ✅ 1. Combined Dataset for Tableau
 
-🧩 What I Did
-✅ File 1: Combined Dataset for Tableau
-Filename: HRSA_All_Categories_Combined.csv / HRSA_All_Categories_Combined.xlsx
+- **File Name:** `HRSA_All_Categories_Combined.csv` and `.xlsx`
+- **Description:**  
+  Combines five key sheets across all five years:
+  - Age and Race-Ethnicity  
+  - Patient Characteristics  
+  - Clinical Data  
+  - Cost  
+  - Services
+- **Added Columns:**
+  - `year` – indicating the year of the source file
+  - `category` – indicating which sheet the data came from
+- **Purpose:** Ready for Tableau import (long format), supports year-over-year and category-based visualizations.
 
-What it contains:
+---
 
-Combined data from the following sheets:
+### ✅ 2. Filtered File for Specific Health Center
 
-Age and Race-Ethnicity
+- **File Name:** `UMN_Clinical_Data_2019_2023.csv` and `.xlsx`
+- **Description:**  
+  Extracts only the `"Clinical Data"` rows for the health center **"UNIVERSITY OF MINNESOTA"** across 2019–2023.
+- **Added Column:** `Year` – for temporal analysis
+- **Use Case:** Longitudinal tracking of one health center's clinical performance.
 
-Patient Characteristics
+---
 
-Clinical Data
+## 🔧 R Scripts
 
-Cost
+| Script Name                              | Description |
+|------------------------------------------|-------------|
+| `combine_hrsa_data_all_years.R`          | Combines all five Excel files and sheets into a single long-format dataset with `year` and `category` columns. Ideal for Tableau or Power BI. |
+| `filter_specific_rows_from_excel_files.R`| Filters a specific sheet (e.g., "Clinical Data") by health center name (e.g., `"UNIVERSITY OF MINNESOTA"`) and combines matching rows from all years into one file. |
 
-Services
+> 💡 Replace the health center name inside the script to extract data for any other center.
 
-Columns year and category added to track source and enable filtering.
+---
 
-Use: Ideal for import into Tableau for multi-year analysis and category-based exploration.
+## 📈 Live Tableau Dashboard
 
-✅ File 2: Filtered Data for Specific Health Center (UNIVERSITY OF MINNESOTA)
-Filename: UMN_Clinical_Data_2019_2023.csv / UMN_Clinical_Data_2019_2023.xlsx
-
-What it contains:
-
-Only rows where Health Center Name == "UNIVERSITY OF MINNESOTA"
-
-Pulled from the "Clinical Data" sheet of each Excel file
-
-Includes a Year column to track time-based data
-
-Use: Useful for longitudinal analysis of a single center's clinical performance.
-
-📂 Scripts Included
-Script Name	Purpose
-combine_hrsa_data_all_years.R	Reads all 5 Excel files, extracts 5 key sheets, adds year and category, and combines them into a single long-format file for Tableau.
-filter_specific_rows_from_excel_files.R	Filters one specific sheet (e.g., "Clinical Data") from each year’s file for a specified health center name (e.g., "UNIVERSITY OF MINNESOTA") and combines it.
+View the interactive dashboard here:  
+🔗 [HRSA UDS Tableau Dashboard](https://public.tableau.com/app/profile/yourusername/viz/hrsa-dashboard/Overview)
