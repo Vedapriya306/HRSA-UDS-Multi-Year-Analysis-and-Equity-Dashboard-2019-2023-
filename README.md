@@ -1,6 +1,6 @@
 # 📊 HRSA UDS Multi-Year Analysis (2019–2023)
 
-This project processes and visualizes data from the **Health Resources and Services Administration (HRSA) Uniform Data System (UDS)** across five years (2019–2023). It includes R scripts to transform and combine data into a Tableau-friendly format, with an interactive dashboard available on Tableau Public.
+This project analyzes **HRSA Uniform Data System (UDS)** data from **16 Federally Qualified Health Centers (FQHCs)** in **Minnesota**, spanning the years **2019–2023**. The aim is to identify demographic trends, service usage patterns, and cost variations that inform **equity-minded patient engagement strategies**. It includes R scripts to transform and combine data into a Tableau-friendly format, with an interactive dashboard available on Tableau Public.
 
 ---
 
