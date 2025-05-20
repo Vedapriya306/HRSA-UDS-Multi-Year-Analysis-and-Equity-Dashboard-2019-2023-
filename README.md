@@ -50,7 +50,7 @@ This data is essential for public health evaluation, funding decisions, and impr
 
 | Script Name                              | Description |
 |------------------------------------------|-------------|
-| `combine_hrsa_data_all_years.R`          | Combines all five Excel files and sheets into a single long-format dataset with `year` and `category` columns. Ideal for Tableau or Power BI. |
+| `HRSA_UDS_COMBINING_ALL_SHEETS.R`          | Combines all five Excel files and sheets into a single long-format dataset with `year` and `category` columns. Ideal for Tableau or Power BI. |
 | `filter_specific_rows_from_excel_files.R`| Filters a specific sheet (e.g., "Clinical Data") by health center name (e.g., `"UNIVERSITY OF MINNESOTA"`) and combines matching rows from all years into one file. |
 
 > 💡 Replace the health center name inside the script to extract data for any other center.
