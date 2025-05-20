@@ -12,7 +12,7 @@ library(writexl)
 library(openxlsx)
 library(stringr)               # For working with strings (used for detecting sheet names)
 
----------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------
 # STEP 1: To loop over each year's file without manually typing every path
 
 # Define the folder where your Excel files are saved
@@ -24,7 +24,7 @@ years <- 2019:2023
 # Build full file paths like "C:/.../2019_MN_Awardees.xlsx", ..., "2023_MN_Awardees.xlsx"
 file_paths <- file.path(folder_path, paste0(years, "_MN_Awardees.xlsx"))
 
---------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------
 
 #STEP 2:  Sheet names may not match exactly in each file,so using regex patterns ensures you pick the right sheet 
 #Even if there is small name variation (eg: spaces or captial letters)
@@ -39,7 +39,7 @@ sheet_patterns <- list(
   services = "Services"
 )
 
----------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------
 
 #STEP 3: Function to read and combine all sheets matching a given pattern
   
@@ -65,7 +65,7 @@ sheet_patterns <- list(
     # Combine all data frames in the list into one
     bind_rows(sheet_data_list)
   }
---------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------
   
 # STEP 5: Read and combine sheets for each category from all excel fiels
   
@@ -78,7 +78,7 @@ df_clinical_data <- read_and_combine_sheets(sheet_patterns$clinical_data)
 df_cost <- read_and_combine_sheets(sheet_patterns$cost)
 df_services <- read_and_combine_sheets(sheet_patterns$services)
 
----------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------
   
 #STEP 6: Add a category column to each dataset
 #This step tags each dataset with a category label so that when all datasets
@@ -91,7 +91,7 @@ df_clinical_data$category <- "Clinical Data"
 df_cost$category <- "Cost"
 df_services$category <- "Services"
 
------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------
   
 # STEP 7: Combine all into one long CSV (Tableau-friendly) and Export
   
